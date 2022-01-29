@@ -53,78 +53,10 @@ cmdclass["jsdeps"] = combine_commands(
     ensure_targets(jstargets),
 )
 
-# Read the contents of the README file on Pypi
-this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
-    long_description = f.read()
-
 setup_args = dict(
-    name=name,
-    description="A Cytoscape widget for Jupyter",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
     version=version,
     scripts=glob(path.join("scripts", "*")),
     cmdclass=cmdclass,
-    packages=find_packages(),
-    author="Mariana Meireles",
-    author_email="mariana.meireles@quantstack.net",
-    url="https://github.com/cytoscape/ipycytoscape",
-    license="BSD",
-    platforms="Linux, Mac OS X, Windows",
-    keywords=["Jupyter", "Widgets", "IPython"],
-    classifiers=[
-        "Intended Audience :: Developers",
-        "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: BSD License",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Framework :: Jupyter",
-    ],
-    include_package_data=True,
-    install_requires=[
-        "ipywidgets>=7.6.0",
-        "spectate>=1.0.0",
-    ],
-    extras_require={
-        "test": [
-            "pytest>4.6",
-            "pytest-cov",
-            "nbval",
-            "pandas",
-            "nbclassic>=0.2.8",
-            "networkx",
-            "pre-commit",
-        ],
-        "examples": [
-            "pandas",
-            "py2neo",
-            "monotonic",
-            # Any requirements for the examples to run
-        ],
-        "docs": [
-            "sphinx",
-            "sphinx_rtd_theme",
-            "sphinx-autobuild>=2020.9.1",
-            "jupyter-sphinx>=0.3.1",
-            "sphinx-copybutton",
-            "nbsphinx",
-            "nbsphinx-link",
-            "networkx",
-            "pandas",
-        ],
-        "neo4j": [
-            "py2neo",
-            "monotonic",
-        ],
-    },
-    entry_points={},
 )
 
 if __name__ == "__main__":
