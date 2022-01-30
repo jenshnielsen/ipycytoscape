@@ -55,7 +55,6 @@ cmdclass["jsdeps"] = combine_commands(
 
 setup_args = dict(
     version=version,
-    scripts=glob(path.join("scripts", "*")),
     cmdclass=cmdclass,
 )
 
