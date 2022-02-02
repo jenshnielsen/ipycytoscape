@@ -307,7 +307,7 @@ class TestGraphAddMethods:
         compare_edges(expected_edges_multiple, graph.edges)
         compare_nodes(expected_nodes, graph.nodes)
 
-    def test_add_edges(self):
+    def test_add_edges_2(self):
         """
         Test to ensure that an edge with the corresponding nodes will be added to the graph
         """
