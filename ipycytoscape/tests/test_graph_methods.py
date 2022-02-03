@@ -273,24 +273,6 @@ class TestGraphAddMethods:
             Edge(classes="", data={"source": "0", "target": "1"}),
             Edge(classes="", data={"source": "1", "target": "2"}),
         ]
-        expected_edges_directed = [
-            Edge(classes=" directed ", data={"source": "0", "target": "1"}),
-            Edge(classes=" directed ", data={"source": "1", "target": "2"}),
-            Edge(classes=" directed ", data={"source": "1", "target": "0"}),
-        ]
-        expected_edges_multiple = [
-            Edge(classes=" multiple_edges ", data={"source": "0", "target": "1"}),
-            Edge(classes=" multiple_edges ", data={"source": "1", "target": "2"}),
-            Edge(
-                classes=" multiple_edges ",
-                data={"source": "0", "target": "1", "weight": "1"},
-            ),
-            Edge(
-                classes=" multiple_edges ",
-                data={"source": "0", "target": "1", "weight": "2"},
-            ),
-            Edge(classes=" multiple_edges ", data={"source": "1", "target": "0"}),
-        ]
 
         graph = Graph()
         graph.add_edges([copy.copy(edge) for edge in edges])
@@ -320,27 +302,10 @@ class TestGraphAddMethods:
             Node(data={"id": "1"}, position={}),
             Node(data={"id": "2"}, position={}),
         ]
-        expected_edges_undirected = [
-            Edge(classes="", data={"source": "0", "target": "1"}),
-            Edge(classes="", data={"source": "1", "target": "2"}),
-        ]
         expected_edges_directed = [
             Edge(classes=" directed ", data={"source": "0", "target": "1"}),
             Edge(classes=" directed ", data={"source": "1", "target": "2"}),
             Edge(classes=" directed ", data={"source": "1", "target": "0"}),
-        ]
-        expected_edges_multiple = [
-            Edge(classes=" multiple_edges ", data={"source": "0", "target": "1"}),
-            Edge(classes=" multiple_edges ", data={"source": "1", "target": "2"}),
-            Edge(
-                classes=" multiple_edges ",
-                data={"source": "0", "target": "1", "weight": "1"},
-            ),
-            Edge(
-                classes=" multiple_edges ",
-                data={"source": "0", "target": "1", "weight": "2"},
-            ),
-            Edge(classes=" multiple_edges ", data={"source": "1", "target": "0"}),
         ]
 
         graph = Graph()
@@ -370,15 +335,6 @@ class TestGraphAddMethods:
             Node(data={"id": "0"}, position={}),
             Node(data={"id": "1"}, position={}),
             Node(data={"id": "2"}, position={}),
-        ]
-        expected_edges_undirected = [
-            Edge(classes="", data={"source": "0", "target": "1"}),
-            Edge(classes="", data={"source": "1", "target": "2"}),
-        ]
-        expected_edges_directed = [
-            Edge(classes=" directed ", data={"source": "0", "target": "1"}),
-            Edge(classes=" directed ", data={"source": "1", "target": "2"}),
-            Edge(classes=" directed ", data={"source": "1", "target": "0"}),
         ]
         expected_edges_multiple = [
             Edge(classes=" multiple_edges ", data={"source": "0", "target": "1"}),
