@@ -137,33 +137,38 @@ export class ElementView extends WidgetView {
     });
     this.cytoscapeView = this.options.cytoscapeView;
     const cyId = this.model.get('data')['id'];
-    this.elem = this.cytoscapeView.cytoscape_obj.getElementById(cyId);
 
-    this.model.on('change:removed', () => {
-      this.elem.remove();
-    });
-    this.model.on('change:classes', () => {
-      this.elem.classes(this.model.get('classes'));
-    });
-    this.model.on('change:data', () => {
-      this.elem.data(this.model.get('data'));
-    });
-    this.model.on('change:pannable', () => {
-      // I think @types/cytoscape is missing panify and unpanify
-      this.model.get('pannable')
-        ? (this.elem as any).panify()
-        : (this.elem as any).unpanify();
-    });
-    this.model.on('change:selectable', () => {
-      this.model.get('selectable')
-        ? this.elem.selectify()
-        : this.elem.unselectify();
-    });
-    this.model.on('change:selected', () => {
-      this.model.get('selected')
-        ? this.elem.selectify()
-        : this.elem.unselectify();
-    });
+    if (this.cytoscapeView !== undefined) {
+      this.elem = this.cytoscapeView.cytoscape_obj.getElementById(cyId);
+
+      this.model.on('change:removed', () => {
+        this.elem.remove();
+      });
+      this.model.on('change:classes', () => {
+        console.log('classes changed');
+        this.elem.classes(this.model.get('classes'));
+      });
+      this.model.on('change:data', () => {
+        console.log('data changed');
+        this.elem.data(this.model.get('data'));
+      });
+      this.model.on('change:pannable', () => {
+        // I think @types/cytoscape is missing panify and unpanify
+        this.model.get('pannable')
+          ? (this.elem as any).panify()
+          : (this.elem as any).unpanify();
+      });
+      this.model.on('change:selectable', () => {
+        this.model.get('selectable')
+          ? this.elem.selectify()
+          : this.elem.unselectify();
+      });
+      this.model.on('change:selected', () => {
+        this.model.get('selected')
+          ? this.elem.selectify()
+          : this.elem.unselectify();
+      });
+    }
   }
 
   valueChanged() {
