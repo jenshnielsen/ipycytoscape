@@ -187,3 +187,6 @@ copyright on their contributions.
 
 This software is licensed under the BSD-3-Clause license. See the
 [LICENSE](LICENSE) file for details.
+
+
+jupyter lab build --minimize=False
