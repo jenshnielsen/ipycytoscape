@@ -33,7 +33,7 @@
     "build:prod": "npm run build:lib && npm run build:all",
     "build": "npm run build:lib && npm run build:all:dev",
     "build:labextension": "npm run clean:labextension && jupyter labextension build .",
-    "build:labextension:dev": "npm run clean:labextension && jupyter labextension build --development True .",
+    "build:labextension:dev": "npm run clean:labextension && jupyter labextension build --development True --source-map True .",
     "build:lib": "tsc",
     "build:nbextension": "webpack --mode=production",
     "build:nbextension:dev": "webpack --mode=development",
